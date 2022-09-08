@@ -1,0 +1,9 @@
+when document has empty values for optional parts
+https://stackoverflow.com/questions/40830407/why-doesnt-the-default-value-work-in-mongoose-schema-when-nothing-was-entered
+
+when post sign up to mongoDB did not work
+https://stackoverflow.com/questions/61566666/mongoerror-user-is-not-allowed-to-do-action-find-on-test-users
+
+
+
+
