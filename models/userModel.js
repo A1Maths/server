@@ -13,6 +13,18 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    surname: {
+        type: String,
+        required: true
+    },
+    school: {
+        type: String,
+        required: false
     }
 })
 
@@ -28,6 +40,13 @@ userSchema.statics.signUp = async function(email, password, name, surname, schoo
     }
     if (!validator.isStrongPassword(password)){
         throw Error('Password not strong enough')
+    }
+    //checkout  isAlphaLocales for ignoring hyphenated names and 's
+    if (!validator.isAlpha(name)){
+        throw Error('Name can only contain letters')
+    }
+    if (!validator.isAlpha(surname)){
+        throw Error('Name can only contain letters')
     }
 
     const exists = await this.findOne({
