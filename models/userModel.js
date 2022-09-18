@@ -32,7 +32,7 @@ const userSchema = new Schema({
 userSchema.statics.signUp = async function(email, password, name, surname, school) {
 
     //validation
-    if (!email || !password){
+    if (!email || !password || !name || !surname){
         throw Error('All fields must be filled')
     }
     if (!validator.isEmail(email)){
@@ -48,6 +48,10 @@ userSchema.statics.signUp = async function(email, password, name, surname, schoo
     if (!validator.isAlpha(surname)){
         throw Error('Name can only contain letters')
     }
+    // need to allow for empty fields for school
+    // if (!validator.isAlpha(school)){
+    //     throw Error('Name can only contain letters')
+    // }
 
     const exists = await this.findOne({
         email
@@ -62,31 +66,14 @@ userSchema.statics.signUp = async function(email, password, name, surname, schoo
 
     const newUser = await this.create({
         email, 
-        password: hash
+        password: hash,
+        name,
+        surname,
+        school
     })
 
     return newUser
 }
-// userSchema.statics.signup = async(email, password, name, surname, school) => {
-//     const exists = await this.findOne({ email })
-
-//     if (exists) {
-//         throw Error('Email already in use')
-//     }
-
-//     const salt = await bcrypt.genSalt(10)
-//     const hash = await bcrypt.hash(password, salt)
-
-//     const newUser = await this.create({
-//         email, 
-//         password: hash,
-//         name,
-//         surname,
-//         school
-//     })
-
-//     return newUser
-// }
 
 
 const user = mongoose.model('User', userSchema);

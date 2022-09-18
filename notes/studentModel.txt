@@ -1,0 +1,15 @@
+,
+    name: {
+        type: String,
+        required: true
+    },
+    surname: {
+        type: String,
+        required: true
+    },
+    school: {
+        type: String,
+        required: false
+    }
+
+
