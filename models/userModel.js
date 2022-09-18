@@ -28,6 +28,31 @@ const userSchema = new Schema({
     }
 })
 
+
+//static login method
+userSchema.statics.login = async function(email, password) {
+    //validation
+    if (!email || !password){
+        throw Error('All fields must be filled')
+    }
+
+    const user = await this.findOne({
+        email
+    })
+
+    if (!user){
+        throw Error('Invalid username or password, please check your details')
+    }
+
+    const match = await bcrypt.compare(password, user.password)
+
+    if (!match){
+        throw Error('Invalid username or password, please check your details')
+    }
+
+    return user
+}
+
 //static signup method
 userSchema.statics.signUp = async function(email, password, name, surname, school) {
 
