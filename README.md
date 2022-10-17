@@ -1,7 +1,12 @@
-DFX Chitter Challenge: Rafee Ahmed
+A1 Maths Website: Rafee Ahmed
 =================
 
+This is an Independent project I've undertaken with a pseudo client, Longhill High School. 
+
 To run the application:
+
+Please make sure to first clone the A1Maths client repository:
+https://github.com/A1Maths/client.git
 
 1. To start, please clone the github repo via HTTPS (or any other preferred method).
 2. Open 2 Terminals up in your code editor
@@ -24,7 +29,7 @@ I hope you enjoy! Initial wire-frames soon to be also attached.
 The User Stories I am working on so far for my Maths Website (for Longhill High School):
 -------
 
-### Standard Acceptance Criteria
+### User Stories to complete:
 ```
 User Story 1:
 As a User (Teacher/Student)
@@ -44,11 +49,3 @@ So that I can practice my maths
 I want to use a Scientific Calculator
 
 ```
-
-Additional requirements met:
-------
-
-* Trainee software engineers sign up to chitter with their email, password, name and a username (e.g. ewithers@digitalfutures.com, password123, Edward Withers, dearshrewdwit).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the trainee and their user handle.
-* Your README should indicate the technologies used, and give instructions on how to install and run the tests.
